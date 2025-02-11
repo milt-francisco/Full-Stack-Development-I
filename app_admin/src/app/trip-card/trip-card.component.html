@@ -14,8 +14,9 @@
       person
     </p>
     <p class="card-text" [innerHTML]="trip.description"></p>
-    <div>
+    <div class="d-flex justify-content-between">
       <button (click)="editTrip(trip)" class="btn btn-info">Edit Trip</button>
+      <button (click)="deleteTrip(trip)" class = "btn btn-danger">Delete Trip</button>
     </div>
   </div>
 </div>

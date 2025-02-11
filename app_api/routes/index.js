@@ -13,6 +13,7 @@ router
 router
   .route('/trips/:tripCode')
   .get(tripsController.tripsFindByCode) // GET method route individual trip
-  .put(tripsController.tripsUpdateTrip); // PUT method updates a trip
+  .put(tripsController.tripsUpdateTrip) // PUT method updates a trip
+  .delete(tripsController.tripsDeleteTrip); // DELETE method removes a trip
 
 module.exports = router;

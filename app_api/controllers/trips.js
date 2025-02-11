@@ -18,7 +18,7 @@ const tripsList = async (req, res) => {
   }
 };
 
-// GET: /tiprs/:tripCode - lists a single trip
+// GET: /trips/:tripCode - lists a single trip
 const tripsFindByCode = async (req, res) => {
   const q = await Model
   .find({'code': req.params.tripCode })
@@ -90,9 +90,26 @@ const tripsUpdateTrip = async (req, res) => {
     }   
 }
 
+//DELETE: /trips/:tripCode - Deletes a trip
+const tripsDeleteTrip = async(req, res) => {
+  // console.log('Entering app/api/controllers/trips.js')
+
+  const q = await Model.findOneAndDelete(
+    { 'code': req.params.tripCode}
+  )
+  .exec();
+
+  if (!q) {
+    return res.status(404).json(err);
+  } else {
+    return res.status(200).json(q);
+  }
+}
+
 module.exports = {
   tripsList,
   tripsFindByCode,
   tripsAddTrip,
-  tripsUpdateTrip
+  tripsUpdateTrip,
+  tripsDeleteTrip
 };
