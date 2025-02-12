@@ -23,7 +23,7 @@ export class DeleteTripComponent implements OnInit {
 
     this.tripService.deleteTrip(tripCode).subscribe({
       next: (value: any) => {
-        console.log(`Deleted ${value.code}`)
+        console.log(`Deleted ${value.code}`);
         this.router.navigate(['']);
       },
       error: (error: any) => {

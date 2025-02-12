@@ -84,7 +84,7 @@ const tripsUpdateTrip = async (req, res) => {
     // console.log(q);
     
     if (!q) {
-      return res.status(400).json(err);
+      return res.status(400).json({message: "Trip not found"});
     } else {
       return res.status(201).json(q);
     }   
