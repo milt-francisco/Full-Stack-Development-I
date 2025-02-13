@@ -77,9 +77,12 @@ export class AuthenticationService {
     this.tripDataService.register(user, passwd).subscribe({
       next: (value:any) => {
         if (value) {
-          // console.log(value);
-          this.authResp = value;
-          this.saveToken(this.authResp.token);
+          console.log("New Admin Added");
+
+          // NOTE: Uncomment for initial admin population from UI
+          // console.log(value)
+          // this.authResp = value;
+          // this.saveToken(this.authResp.token);
         }
       },
       error: (error: any) => {

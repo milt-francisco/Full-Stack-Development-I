@@ -46,7 +46,7 @@ export class TripDataService {
   // Call to /register endpoint, creates user and returns JWT
   register(user: User, passwd: string) : Observable<AuthResponse> {
     // console.log('Inside TripDatService::register');
-    return this.handleAuthAPICall('login', user, passwd);
+    return this.handleAuthAPICall('register', user, passwd);
   }
 
   handleAuthAPICall(endpoint: string, user: User, passwd: string) : Observable<AuthResponse> {

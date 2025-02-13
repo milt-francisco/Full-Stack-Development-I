@@ -4,23 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../models/user';
-
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css',
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   public formError: string = '';
   submitted = false;
   credentials = {
+    name: '',
     email: '',
     password: '',
   };
-  isLoading = false;
-  isUnauthorized = false;
+  isAdmin = true;
+  newAdminAdded = false;
 
   constructor(
     private router: Router,
@@ -29,43 +29,39 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public onLoginSubmit(): void {
+  public onRegisterSubmit(): void {
     this.formError = '';
     if (
+      !this.credentials.name ||
       !this.credentials.email ||
       !this.credentials.password
     ) {
       this.formError = 'All fields required, please try again';
     } else {
-      this.doLogin();
+      this.doRegister();
     }
   }
 
-  private doLogin(): void {
-    this.isLoading = true;
+  private doRegister(): void {
     let newUser = {
+      name: this.credentials.name,
       email: this.credentials.email,
     } as User;
 
     // console.log('LoginComponent::doLogin');
     // console.log(this.credentials);
 
-    this.authenticationService.login(newUser, this.credentials.password);
-
     if (this.authenticationService.isLoggedIn()) {
       // console.log('Router::Direct');
-      this.router.navigate(['']);
-    } else {
+      this.authenticationService.register(newUser, this.credentials.password);
+      this.newAdminAdded = true;
 
       var timer = setTimeout(() => {
-        if (this.authenticationService.isLoggedIn()) {
-          // console.log('Router::Pause');
-          this.router.navigate(['']);
-        } else {
-          this.isUnauthorized = true;
-        }
-        this.isLoading = false;
+        // console.log('Router::Pause');
+        this.router.navigate(['']);
       }, 3000);
+    } else {
+      this.isAdmin = false;
     }
   }
 }

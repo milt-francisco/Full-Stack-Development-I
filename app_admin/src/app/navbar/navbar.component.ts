@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { RouterModule } from '@angular/router';
 
@@ -16,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public isLoggedIn():boolean {
+  public isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
   }
 

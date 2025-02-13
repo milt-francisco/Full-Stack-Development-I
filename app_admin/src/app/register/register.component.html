@@ -1,9 +1,20 @@
 <div class="row">
   <div class="col-12 col-md-8 w-50">
-    <h2>Login</h2>
-    <form (ngSubmit)="onLoginSubmit()">
+    <h2>Register</h2>
+    <form (ngSubmit)="onRegisterSubmit()">
       <div role="alert" *ngIf="formError" class="alert alert-danger">
         {{ formError }}
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter Name"
+          class="form-control"
+          autocomplete="name"
+          [(ngModel)]="credentials.name"
+        />
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
@@ -28,15 +39,22 @@
           [(ngModel)]="credentials.password"
         />
       </div>
-      <button type="submit" [disabled]="isLoading" role="button" class="btn btn-primary mt-2">
-        Sign In!
+      <button
+        type="submit"
+        [disabled]="newAdminAdded || !isAdmin"
+        role="button"
+        class="btn btn-primary mt-2"
+      >
+        Register!
       </button>
     </form>
-    <div *ngIf="isLoading" class="alert alert-primary mt-2" role="alert">
-      Logging in, please wait...
-    </div>
-    <div *ngIf="isUnauthorized" class="alert alert-danger mt-2" role="alert">
-      Unauthorized Login Attempt
+    <div>
+      <div *ngIf="!isAdmin" class="alert alert-danger mt-2" role="alert">
+        Only Admins can add New Admins!
+      </div>
+      <div *ngIf="newAdminAdded" class="alert alert-success mt-2" role="alert">
+        New Admin Added!
+      </div>
     </div>
   </div>
 </div>

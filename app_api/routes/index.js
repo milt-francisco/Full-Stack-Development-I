@@ -45,8 +45,8 @@ function authenticateJWT(req, res, next) {
 }
 
 // Authentication
-router.route("/register").post(authController.register);
 router.route("/login").post(authController.login);
+router.route("/register").post(authController.register); // NOTE: Add authenticateJWT to this route after initial admins are added
 
 // routes for trips endpoint
 router
