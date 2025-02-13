@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: '',
   };
+  isLoading = false;
 
   constructor(
     private router: Router,
@@ -36,13 +37,13 @@ export class LoginComponent implements OnInit {
       !this.credentials.name
     ) {
       this.formError = 'All fields required, please try again';
-      this.router.navigateByUrl('#');
     } else {
       this.doLogin();
     }
   }
 
   private doLogin(): void {
+    this.isLoading = true;
     let newUser = {
       name: this.credentials.name,
       email: this.credentials.email,
@@ -57,11 +58,13 @@ export class LoginComponent implements OnInit {
       // console.log('Router::Direct');
       this.router.navigate(['']);
     } else {
+
       var timer = setTimeout(() => {
         if (this.authenticationService.isLoggedIn()) {
           // console.log('Router::Pause');
           this.router.navigate(['']);
         }
+        this.isLoading = false;
       }, 3000);
     }
   }

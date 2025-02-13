@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-12 col-md-8">
+  <div class="col-12 col-md-8 w-25">
     <h2>Login</h2>
     <form (ngSubmit)="onLoginSubmit()">
       <div role="alert" *ngIf="formError" class="alert alert-danger">
@@ -11,6 +11,8 @@
           type="text"
           name="name"
           placeholder="Enter Name"
+          class="form-control"
+          autocomplete="name"
           [(ngModel)]="credentials.name"
         />
       </div>
@@ -19,7 +21,9 @@
         <input
           type="email"
           name="email"
+          autocomplete="email"
           placeholder="Enter email address"
+          class="form-control"
           [(ngModel)]="credentials.email"
         />
       </div>
@@ -30,13 +34,17 @@
           class="form-control"
           id="password"
           name="password"
+          autocomplete="password"
           placeholder="e.g 12+ alphanumerics"
           [(ngModel)]="credentials.password"
         />
       </div>
-      <button type="submit" role="button" class="btn btn-primary">
+      <button type="submit" [disabled]="isLoading" role="button" class="btn btn-primary">
         Sign In!
       </button>
     </form>
+    <div *ngIf="isLoading">
+      Logging in, please wait...
+    </div>
   </div>
 </div>

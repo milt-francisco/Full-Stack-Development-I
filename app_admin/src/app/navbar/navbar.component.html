@@ -13,16 +13,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link active" routerLink="">Trips<span class="sr-only" *ngIf="isLoggedIn()">(current)</span></a
+      <a class="nav-link active" routerLink=""><h2>Trips <span class="sr-only h6" *ngIf="isLoggedIn()">(current)</span></h2></a
       >
     </div>
   </div>
-  <div class="navbar-end">
-    <a class="nav-item" routerLink="login" *ngIf="!isLoggedIn()">
-      <span class="has-icon-left">Log In</span>
-    </a>
-    <a class="nav-item active" (click)="onLogout()" *ngIf="isLoggedIn()">
-      <span class="has-icon-left">Log Out</span>
-    </a>
+  <div class="navbar-end ">
+    <button class="nav-item btn btn-primary" routerLink="login" *ngIf="!isLoggedIn()">Login</button>
+    <button class="nav-item btn btn-info" *ngIf="isLoggedIn()">Add New Admin</button>
+    <button class="nav-item btn btn-primary me-2 ms-1" (click)="onLogout()" *ngIf="isLoggedIn()">Logout</button>
   </div>
 </nav>
