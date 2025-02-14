@@ -12,7 +12,7 @@ Open command prompt and
 
 ```git clone [Paste URL]``` - to retrieve contents from applicable branch
 
-```cd [Directory]\travlr``` - to change directory to travlr app
+```cd [Directory]\Full-Stack-Development-I``` - to change directory to travlr app
 
 ```npm install``` - to download applicable node_modules
 
