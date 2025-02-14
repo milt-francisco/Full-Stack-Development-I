@@ -16,6 +16,8 @@ Open command prompt and
 
 ```npm install``` - to download applicable node_modules
 
+Create a .env file with an applicable JWT_SECRET variable in the top folder.
+
 ```npm start``` - to start the server
 
 Navigate in Chrome browser to ```http://localhost:3000``` to see customer facing site.
