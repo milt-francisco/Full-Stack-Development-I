@@ -16,7 +16,7 @@ Open command prompt and
 
 ```npm install``` - to download applicable node_modules
 
-Create a .env file with a JWT_SECRET = a secret string in the Full-Stack-Development-I folder.
+Create a ```.env``` file with a JWT_SECRET = a secret string in the Full-Stack-Development-I folder.
 
 ```npm start``` - to start the server
 
