@@ -5,10 +5,23 @@
 ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
+## Environment Setup
+Follow the attached guide ```Environment Setup.pdf``` to install the applicable services:
+
+VSCode
+
+Postman
+
+MongoDB
+
 ## Installation
+Open command prompt and 
+
+```cd [Desired Directory]``` - location for the app to be stored
+
 ```git clone [Paste URL]``` - to retrieve contents from applicable branch
 
-```cd [Directory]\travlr``` - to change to applicable directory
+```cd [Directory]\travlr``` - to change directory to travlr app
 
 ```npm install``` - to download applicable node_modules
 
